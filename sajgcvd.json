@@ -1,0 +1,22 @@
+I wanted read and write access only for "oig-supervisor-app-user" for  S3 bucket :  "oig-supervisor-attendance".inline policy object for "oig-supervisor-app-user" IAM user : 
+
+'''{
+  "Version": "2012-10-17",
+  "Id": "Policy1561964929358",
+  "Statement": [
+    {
+      "Sid": "Stmt1561964454052",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::171811804105:user/OIG-supervisor-app-user"
+      },
+      "Action": ["s3:GetObject", "s3:PutObject", "s3:PutObjectAcl"],
+      "Resource": "arn:aws:s3:::oig-supervisor-attendance",
+      "Condition": {
+        "StringLike": {
+          "s3:prefix": [""]
+        }
+      }
+    }
+  ]
+}'''
